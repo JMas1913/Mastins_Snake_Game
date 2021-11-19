@@ -1,14 +1,5 @@
-body {
+bbody {
     background: ivory;
-}
-
-header {
-    background: ivory;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 20px;
-    font-size: 56;
 }
 
 .grid {
