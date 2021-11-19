@@ -30,3 +30,4 @@ This game is a fun way to pass the time or work on your fine motor skills. As yo
 ## Credits
 - [Snake Gif](https://www.behance.net/gallery/50353689/ANIMATED-GIFS)
 - [Thumbs Up Gif](https://wifflegif.com/gifs/713382-double-thumbs-up-two-thumbs-up-gif)
+- [Snake Tutorial reference](https://www.freecodecamp.org/news/how-to-build-a-snake-game-in-javascript/)
