@@ -2,11 +2,8 @@ let grid = document.querySelector(".grid");
 let popup = document.querySelector(".popup");
 let playAgain = document.querySelector(".playAgain");
 let scoreDisplay = document.querySelector(".scoreDisplay");
-let left = document.querySelector(".left");
-let bottom = document.querySelector(".bottom");
-let right = document.querySelector(".right");
-let up = document.querySelector(".top");
-let width = 10;
+let highScoreDisplay = document.querySelector(".highScore")
+let width = 20;
 let currentIndex = 0;
 let appleIndex = 0;
 let currentSnake = [2, 1, 0];
@@ -15,6 +12,7 @@ let score = 0;
 let speed = 0.8;
 let intervalTime = 0;
 let interval = 0;
+let highScore = '';
 
 document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keyup', control);
@@ -33,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const createBoard = () => {
     popup.style.display = 'none';
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 400; i++) {
         let div = document.createElement('div');
         grid.appendChild(div);
     }
@@ -136,47 +134,100 @@ let checkForHits = (squares) => {
       }
 }
 
-function eatApple(squares, tail) {
+// function eatApple(squares, tail) {
+//     if (squares[currentSnake[0]].classList.contains("apple")) {
+//       squares[currentSnake[0]].classList.remove("apple");
+//       squares[tail].classList.add("snake");
+//       currentSnake.push(tail);
+//       randomApple(squares);
+//       score++;
+//       scoreDisplay.textContent = score;
+//       clearInterval(interval);
+//       intervalTime = intervalTime * speed;
+//       interval = setInterval(moveOutcome, intervalTime);
+//     }
+// }
+
+let eatApple = (squares, tail) => {
     if (squares[currentSnake[0]].classList.contains("apple")) {
-      squares[currentSnake[0]].classList.remove("apple");
-      squares[tail].classList.add("snake");
-      currentSnake.push(tail);
-      randomApple(squares);
-      score++;
-      scoreDisplay.textContent = score;
-      clearInterval(interval);
-      intervalTime = intervalTime * speed;
-      interval = setInterval(moveOutcome, intervalTime);
+        squares[currentSnake[0]].classList.remove("apple");
+        squares[tail].classList.add("snake");
+        currentSnake.push(tail);
+        randomApple(squares);
+        score++;
+        scoreDisplay.textContent = score;
+        clearInterval(interval);
+        intervalTime = intervalTime * speed;
+        interval = setInterval(moveOutcome, intervalTime);
     }
 }
 
-function randomApple(squares) {
+// function randomApple(squares) {
+//     do {
+//       appleIndex = Math.floor(Math.random() * squares.length);
+//     } while (squares[appleIndex].classList.contains("snake"));
+//     squares[appleIndex].classList.add("apple");
+// }
+
+let randomApple = (squares) => {
     do {
-      appleIndex = Math.floor(Math.random() * squares.length);
-    } while (squares[appleIndex].classList.contains("snake"));
-    squares[appleIndex].classList.add("apple");
+        appleIndex = Math.floor(Math.random() * squares.length);
+      } 
+    while (squares[appleIndex].classList.contains("snake"));
+      squares[appleIndex].classList.add("apple");
 }
 
-function control(e) {
-    if (e.keycode === 39) {
-      direction = 1; // right
-    } else if (e.keycode === 38) {
-      direction = -width; //if we press the up arrow, the snake will go ten divs up
-    } else if (e.keycode === 37) {
-      direction = -1; // left, the snake will go left one div
-    } else if (e.keycode === 40) {
-      direction = +width; // down the snake head will instantly appear 10 divs below from the current div
-    }
-}
+// function control(e) {
+//     if (e.keycode === 39) {
+//       direction = 1; // right
+//     } else if (e.keycode === 38) {
+//       direction = -width; //if we press the up arrow, the snake will go ten divs up
+//     } else if (e.keycode === 37) {
+//       direction = -1; // left, the snake will go left one div
+//     } else if (e.keycode === 40) {
+//       direction = +width; // down the snake head will instantly appear 10 divs below from the current div
+//     }
+// }
 
-up.addEventListener("click", () => (direction = -width));
-bottom.addEventListener("click", () => (direction = +width));
-left.addEventListener("click", () => (direction = -1));
-right.addEventListener("click", () => (direction = 1));
+let control = (e) => {
+    switch (e.key) {
+        case "ArrowUp":
+               direction = -width
+            console.log("snake moves up"); //tester
+            break;
+        case "ArrowDown":
+               direction = width
+            console.log("snake moves down"); //tester
+            break;
+        case "ArrowLeft":
+            if (direction === 1) {
+                break;
+            }
+            direction = -1
+            console.log("snake moves left"); //tester
+            break;
+        case "ArrowRight":
+            if (direction === -1) {
+                break;
+            }
+               direction = 1
+            console.log("snake moves right"); //tester
+            break;      
+        default:
+            console.log("wrong key"); //tester
+            break;        
+        }
+        
+}
+document.addEventListener('keydown', control);
+
 
 function replay() {
     grid.innerHTML = "";
     createBoard();
+    highScore = score;
+    highScoreDisplay.innerText= highScore;
+    score = 0;
     startGame();
     popup.style.display = "none";
 }
@@ -184,28 +235,28 @@ function replay() {
 
 //-----------------------------------------------------------------------------------------------
 
-const keyboardEvent = (ev) => {
-    switch (ev.key) {
-    case "ArrowUp":
-           direction = width
-        console.log("snake moves up"); //tester
-        break;
-    case "ArrowDown":
-           direction = -width
-        console.log("snake moves down"); //tester
-        break;
-    case "ArrowLeft":
-           direction = -1
-        console.log("snake moves left"); //tester
-        break;
-    case "ArrowRight":
-           direction = 1
-        console.log("snake moves right"); //tester
-        break;      
-    default:
-        console.log("wrong key"); //tester
-        break;        
-    }
+// const keyboardEvent = (ev) => {
+//     switch (ev.key) {
+//     case "ArrowUp":
+//            direction = width
+//         console.log("snake moves up"); //tester
+//         break;
+//     case "ArrowDown":
+//            direction = -width
+//         console.log("snake moves down"); //tester
+//         break;
+//     case "ArrowLeft":
+//            direction = -1
+//         console.log("snake moves left"); //tester
+//         break;
+//     case "ArrowRight":
+//            direction = 1
+//         console.log("snake moves right"); //tester
+//         break;      
+//     default:
+//         console.log("wrong key"); //tester
+//         break;        
+//     }
     
-}
-document.addEventListener('keydown', keyboardEvent);
+// }
+// document.addEventListener('keydown', keyboardEvent);
