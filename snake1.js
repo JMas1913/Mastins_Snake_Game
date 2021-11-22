@@ -15,7 +15,14 @@ let intervalTime = 0;
 let interval = 0;
 let highScore = '';
 
-document.addEventListener('click', )
+document.addEventListener('click', difficultyLevels)
+// First make a button that starts the game
+// Event listener for click
+// Then make two more buttons
+// That each have their own event listener
+// The callback function should set a value for the game speed before starting it
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keyup', control);
