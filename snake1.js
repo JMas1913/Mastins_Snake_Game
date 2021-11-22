@@ -2,7 +2,8 @@ let grid = document.querySelector(".grid");
 let popup = document.querySelector(".popup");
 let playAgain = document.querySelector(".playAgain");
 let scoreDisplay = document.querySelector(".scoreDisplay");
-let highScoreDisplay = document.querySelector(".highScore")
+let highScoreDisplay = document.querySelector(".highScore");
+let difficultyLevels = document.querySelector(".difficulty");
 let width = 20;
 let currentIndex = 0;
 let appleIndex = 0;
@@ -13,6 +14,8 @@ let speed = 0.8;
 let intervalTime = 0;
 let interval = 0;
 let highScore = '';
+
+document.addEventListener('click', )
 
 document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keyup', control);
