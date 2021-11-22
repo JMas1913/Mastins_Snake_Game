@@ -10,10 +10,23 @@ let appleIndex = 0;
 let currentSnake = [2, 1, 0];
 let direction = 1;
 let score = 0;
-let speed = 0.8;
 let intervalTime = 0;
 let interval = 0;
 let highScore = '';
+let difLevel = window.location.href.replace('file:///Users/mastinfitness/Desktop/General_Assembly/ga_seir/projects/project_1/Mastins_Snake_Game/snake.html?', '')
+let speed = 0.8;
+switch (difLevel) {
+    case 'medium':
+        speed = 0.7
+        break;
+    case 'hard':
+        speed = 0.6
+        break;
+    default:
+        speed = 0.8
+        break;
+}
+console.log(difLevel);
 
 document.addEventListener('click', difficultyLevels)
 // First make a button that starts the game
@@ -49,6 +62,7 @@ const startGame = () => {
     currentIndex = 0;
     currentSnake.forEach((index) => squares[index].classList.add('snake'));
     interval = setInterval(moveOutcome, intervalTime);
+    
 }
 
 let moveOutcome = () => {
