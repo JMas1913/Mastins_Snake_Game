@@ -28,15 +28,6 @@ switch (difLevel) {
 }
 console.log(difLevel);
 
-document.addEventListener('click', difficultyLevels)
-// First make a button that starts the game
-// Event listener for click
-// Then make two more buttons
-// That each have their own event listener
-// The callback function should set a value for the game speed before starting it
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keyup', control);
     createBoard();
