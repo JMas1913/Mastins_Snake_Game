@@ -2,6 +2,12 @@ body {
     background: ivory;
 }
 
+h1 {
+    text-align: center;
+    color: blue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .grid {
     width: 400px;
     height: 400px;
