@@ -32,3 +32,4 @@ This game is a fun way to pass the time or work on your fine motor skills. As yo
 - [Thumbs Up Gif](https://wifflegif.com/gifs/713382-double-thumbs-up-two-thumbs-up-gif)
 - [Snake Tutorial reference](https://www.freecodecamp.org/news/how-to-build-a-snake-game-in-javascript/)
 - [DOM Events](https://www.w3schools.com/jsref/dom_obj_event.asp)
+- [Snake Gif for the landing page](https://petamind.com/smooth-nature-snake-game-redev-with-kotlin-part-3/)

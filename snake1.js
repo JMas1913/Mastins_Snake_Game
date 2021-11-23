@@ -26,7 +26,7 @@ switch (difLevel) {
         speed = 0.8
         break;
 }
-console.log(difLevel);
+
 
 document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keyup', control);
@@ -117,28 +117,23 @@ let control = (e) => {
     switch (e.key) {
         case "ArrowUp":
                direction = -width
-            console.log("snake moves up"); //tester
             break;
         case "ArrowDown":
                direction = width
-            console.log("snake moves down"); //tester
             break;
         case "ArrowLeft":
             if (direction === 1) {
                 break;
             }
             direction = -1
-            console.log("snake moves left"); //tester
             break;
         case "ArrowRight":
             if (direction === -1) {
                 break;
             }
                direction = 1
-            console.log("snake moves right"); //tester
             break;      
         default:
-            console.log("wrong key"); //tester
             break;        
     }
         
