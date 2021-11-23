@@ -33,4 +33,7 @@ This game is a fun way to pass the time or work on your fine motor skills. As yo
 - [Snake Tutorial reference](https://www.freecodecamp.org/news/how-to-build-a-snake-game-in-javascript/)
 - [DOM Events](https://www.w3schools.com/jsref/dom_obj_event.asp)
 - [Snake Gif for the landing page](https://petamind.com/smooth-nature-snake-game-redev-with-kotlin-part-3/)
-- Lots of help with the instructional team
+- [Thank You Gif](https://www.funimada.com/thank-you/)
+- Lots of help from the instructional team
+
+![Thank You](https://www.funimada.com/assets/images/cards/big/thank-you-9.gif)
